@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+/* 초기화 태그 */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	font-size: 10px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a{
+	text-decoration: none ;
+	color: inherit  ; /* 부모태그의 컬러를 상속받아 사용 */
+	cursor: point;
+}
+a:hover{
+	text-decoration: underline ;
+
+}
+
+/* 공통 */
+
+.bt_wrap {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 0;
+}
+
+.bt_wrap a{
+	display: inline-block;
+	min-width: 80px; /* 80px 보다 작아지지 X */
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 2px;
+	font-size : 1.4rem; /*루트 태그(html)의1.4배*/
+	text-align: center;
+}
+.bt_wrap a:hover {
+	text-decoration: underline !important;
+}
+
+.bt_wrap .on { /* a태그면서 on 클래스를 가진.. */
+	background: #000 ;
+	color: #fff  !important;
+}
+
+
+/* index.jsp */
+
+.wrap {
+	width: 1000px;
+	margin: 0 auto; /* 가운데 정렬(width 필수 )*/
+}
+
+.customer_list{
+	width:100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+	font-size: 1.5rem;
+}
+
+.customer_list caption {
+	padding: 30px;
+}
+
+.customer_list th, .customer_list td {
+	border-bottom: 1px solid #444444;
+	padding: 10px;
+	text-align: center;
+}
+
+.customer_list td.title > a:hover {
+	text-decoration: underline;
+}
+.customer_page{
+	margin-top: 30px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.customer_page a {
+ 	display: inline-block;
+ 	width: 32px;
+ 	height: 32px;
+ 	box-sizing: border-box;
+ 	line-height: 32px; /*height와 같은 크기로 지정: 수직상에서 가운데 정렬*/
+}
+.customer_page a:hover{
+	text-decoration: underline !important;
+}
+
+.customer_page a.bt {
+	font-size: 1.2rem;
+	letter-spacing: -1px;
+}
+
+.customer_page a.num{
+	font-size: 1.4rem;
+}
+.customer_page a.num.on{
+	border-color: #000;
+	background: #000;
+	color: #fff;
+}
+
+/*view.jsp */
+
+.customer_wrap{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.customer_title {
+	margin: 30px 10px;
+}
+
+.customer_title strong{
+	font-size: 3rem;
+}
+
+.customer_title p {
+	margin-top: 5px;
+	font-size: 1.4rem;
+}
+
+/*view.jsp */
+
+.customer_view{
+	width: 100%;
+	border-top: 2px solid #000;
+}
+
+.customer_view .title{
+	padding: 20px 15px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 2rem;
+}
+.customer_view .info{
+	padding: 20px 15px;
+	border-bottom: 1px solid #ddd;
+	font-size: 0;
+}
+
+.customer_view .info dl{
+	position: relative;
+	display: inline-block;
+	padding: 0 20px;
+}
+.customer_view .info dl:first-child {
+	padding-left: 0;
+}
+.customer_view .info dl::before{
+	content: "";
+	position: absolute;
+	top: 1px;
+	left: 0;
+	display: block;
+	width: 1px;
+	height: 13px;
+	background: #ddd;
+}
+.customer_view .info dl:first-child::before{
+	display: none;
+}
+.customer_view .info dl dt, .customer_view .info dl dd{
+	display: inline-block;
+	font-size: 1.4rem;
+}
+.customer_view .info dl dd{
+	margin-left: 10px;
+	color: #777;
+}
+.customer_view .cont{
+	padding: 15px;
+	border-bottom: 1px solid #000;
+	line-height: 160%;
+	font-size: 1.4rem;
+}
+
+/*	regist.jsp	*/
+
+
+
+/* 768 ~ 1000px */
+@media all and (max-width: 1000px) {
+	.wrap{
+	width: 100vw; /* 뷰포트의 크기에 맞춰서 width를 100%로 */
+	}
+	
+	.customer_wrap {
+		width: 100vw;
+	}
+}
+/* 0 ~767 */
+@media all and (max-width: 767px) {
+	/* index.jsp 반응형 적용 */
+	.wrap {
+		width: 95vw;
+		margin: 0 auto;
+	}
+	.customer_list th:nth-of-type(1),
+	.customer_list td:nth-of-type(1) {
+	display: none;
+}
+	.customer_list th:nth-of-type(3),
+	.customer_list td:nth-of-type(3) {
+	display: none;
+}
+	.customer_list th:nth-of-type(4),
+	.customer_list td:nth-of-type(4) {
+	display: none;
+}
+
+	/*	view.jsp, register.jsp 반응형 */
+	.customer_wrap {
+		width: 100vw;
+	}
+	.customer_register .title dt{
+		width: 70px;
+	}
+	.customer_register .info dt{
+		width: 70px;
+		margin-bottom: 10px;
+	}
+	
+	.customer_register .title input[type="text"]{
+		width: 100%;
+	}
+	.customer_register .info input[type="text"],
+	.customer_register .info input[type="password"]{
+		width: 80%;
+	}
+	
+	.customer_register .info dl{
+		width: 100%;
+	}
+	.customer_view .info dl{
+		padding: 0 10px;
+	}
+	
+	.customer_view .info dl dt,
+	.customer_view .info dl dd{
+	 	display: inline-block;
+	 	font-size: 1rem;
+	}
+	
+	.customer_view .info dl:nth-of-type(1), 
+	.customer_view .info dl:nth-of-type(3) {
+		 display: none;
+	}
+	
+	.customer_view .info dl::before{
+		display: none;
+	}
+	.customer_view .cont img {
+		width: 50%;
+	}
+}
+
