@@ -72,9 +72,9 @@ public class CustomerDAO {
 	}
 	
 	//고객 정보 등록 메소드
-	public void regist(Customer c) throws Exception{
+	public void insertInfo(Customer c) throws Exception{
 		Connection conn = open();
-		String sql = "INSERT INTO customer values(customer_seq.nextval,?,?,?,?,?,?,?,?)";
+		 String sql = "INSERT INTO customer (id,name, address, phone, gender, age, img, point, grade) VALUES (customer_seq.nextval,?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		try(conn; pstmt){
@@ -88,5 +88,39 @@ public class CustomerDAO {
 			pstmt.setString(8, c.getGrade());
 			pstmt.executeUpdate();
 		}
+	}
+	public void updateInfo(Customer c) throws Exception{
+		Connection conn = open();
+		String sql = "update customer set name=?,address=?,phone=?,gender=?,age=?,img=?,point=? ,grade=? where id=? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+				try(conn; pstmt){
+					pstmt.setString(1, c.getName());
+					pstmt.setString(2, c.getAddress());
+					pstmt.setString(3, c.getPhone());
+					pstmt.setString(4, c.getGender());
+					pstmt.setInt(5, c.getAge());
+					pstmt.setString(6, c.getImg());
+					pstmt.setInt(7, c.getPoint());
+					pstmt.setString(8, c.getGrade());
+					pstmt.setInt(9,c.getId());
+					pstmt.executeUpdate();
+					
+					if(pstmt.executeUpdate() !=1) {
+						throw new Exception("수정된 정보가 없습니다.");
+					}
+				}
+	}
+	
+	public void deleteInfo(int id) throws Exception{
+		Connection conn = open();
+		String sql = "delete from customer where id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try(conn; pstmt){
+			pstmt.setInt(1, id);
+			if(pstmt.executeUpdate() != 1) {
+				throw new Exception("삭제된 글이 없습니다.");
+			}
+		} 
 	}
 }
