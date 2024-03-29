@@ -7,60 +7,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel = "stylesheet" href = "./css/style.css"/>
+<link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+         crossorigin="anonymous"
+      />
 </head>
 <body>
 	<div class="customer_wrap">
 		<div class="customer_title">
 			<a href="index"><strong>고객정보</strong></a>
-			<p>ID:${customer.id}</p>
+			<p></p>
 		</div>
-		<div class = "customer_view_wrap">
-			<div class="customer_view">
-				
-				<div class="info" style="position:relative;">
-					
-					<dl>
-						<dt>고객 이름</dt>
-						<dd>${customer.name}</dd>
-					</dl>
-					<dl>
-						<dt>주소</dt>
-						<dd>${customer.address}</dd>
-					</dl>
-					<dl>
-						<dt>전화번호</dt>
-						<dd>${customer.phone}</dd>
-					</dl>
-					<dl>
-						<dt>성별</dt>
-						<dd>${customer.gender}</dd>
-					</dl>
-					<dl>
-						<dt>포인트</dt>
-						<dd>${customer.point}</dd>
-					</dl>
-					<dl>
-						<dt>등급</dt>
-						<dd>${customer.grade}</dd>
-					</dl>
-					<dl style = "position: absolute; right: 0;">
-						<dt><a onclick="chkDelete(${customer.id});return false;">삭제하기</a></dt>
-					</dl>
-				</div>
-				<!-- white-space(공백,줄바꿈 규칙 적용)  -->
-				<!-- white-space:pre-wrap(div 영역 안에서 감싸면서 줄바꿈)  -->
-				
-				<c:if test= "${customer.img !=null}">
-				<div class="cont"><img src = "${customer.img}" alt="업로드 이미지"></div>
-				</c:if>
-				
+		<div class="card" style="width: 45rem; height: 850px !important;">
+  <c:if test= "${customer.img !=null}">
+	<img class="card-img-top" src = "${customer.img}" alt="업로드 이미지" width="350" height="450">
+	</c:if>
+	<c:if test= "${customer.img =null}">
+	<img class="card-img-top" src = "./img/기본사진.jpg" alt="업로드 이미지" width="350" height="450">
+	</c:if>
+  <div class="card-body">
+    <h5 class="card-title">고객 이름: ${customer.name}</h5>
+    <p class="card-text">ID:${customer.id} </p>
+    <p class="card-text">주소: ${customer.address} </p>
+    <p class="card-text">전화번호:  ${customer.phone} </p>
+    <p class="card-text">성별:  ${customer.gender} </p>
+    <p class="card-text">포인트:  ${customer.point} </p>
+    <p class="card-text">등급:  ${customer.grade} </p>
+    <button onclick="chkDelete(${customer.id});return false;" class="btn btn-danger">삭제하기</button>
+  </div>
+</div>
 			</div>
 			<div class= "bt_wrap">
 				<a href="index" class="on">목록</a>
-				<a href="edit?id=${customer.id}">수정</a>
+				<a href="edit?id=${customer.id}" class="off">수정</a>
 			</div>
-		</div>
-	</div>
+	<footer>
+         <p>&copy; 2024 Movie &amp; TV Program. All rights reserved.</p>
+         <p>Contact us at: info@example.com</p>
+         <div>
+            Follow us on:
+            <a href="https://twitter.com/example" target="_blank">Twitter</a>
+            |
+            <a href="https://facebook.com/example" target="_blank">Facebook</a>
+         </div>
+      </footer>
 	<script>
 
 		<c:if test= "${error != null}">

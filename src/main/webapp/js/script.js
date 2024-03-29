@@ -15,6 +15,10 @@ function chkForm(){
 		alert("전화번호를 입력해주세요");
 		return false; //함수 종료시킴
 	}
+	if(f.gender.value ==''){
+		alert("성별을 입력해주세요");
+		return false; //함수 종료시킴
+	}
 	if(f.age.value ==''){
 		alert("나이를 입력해주세요");
 		return false; //함수 종료시킴

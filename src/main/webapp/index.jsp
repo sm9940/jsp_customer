@@ -7,14 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel = "stylesheet" href = "./css/style.css"/>
-
+<link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+         crossorigin="anonymous"
+      />
 </head>
 <body>
+<header>
+<h1 style ="font-weight: bold">고객 정보 리스트</h1>			
+</header>
  <div class = "wrap">	
 		<table class = "customer_list">
-			 <caption>
-			 <h1>고객 정보 리스트</h1>
-				</caption>
+			 
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -38,7 +44,7 @@
 			</tbody>
 		</table>
 		<div class = "bt_wrap bt_list">
-			<a href ="regist">입력</a>
+			<a href ="regist" class="on">등록</a>
 		</div>
 		<div class = "customer_page">
 			<a href= "#" class = "bt first">&lt;&lt;</a>
@@ -52,6 +58,16 @@
 			<a href= "#" class = "bt last">&gt;&gt;</a>
 		</div>
 	</div>
+	<footer>
+         <p>&copy; 2024 Movie &amp; TV Program. All rights reserved.</p>
+         <p>Contact us at: info@example.com</p>
+         <div>
+            Follow us on:
+            <a href="https://twitter.com/example" target="_blank">Twitter</a>
+            |
+            <a href="https://facebook.com/example" target="_blank">Facebook</a>
+         </div>
+      </footer>
 	<script>
 		//request 객체에 error가 있을 경우 에러메세지 출력
 		//쿼리스트링에 error가 있을 경우 에러메세지 출력(request 객체에 포함되므로)
@@ -63,5 +79,6 @@
 		alert("${param.error}");
 		</c:if>
 	</script>
+	
 </body>
 </html>

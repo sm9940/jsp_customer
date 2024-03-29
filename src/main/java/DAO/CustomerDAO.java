@@ -28,7 +28,7 @@ public class CustomerDAO {
 	public ArrayList<Customer> getList() throws Exception{
 		Connection conn = open();
 		ArrayList<Customer> customerList = new ArrayList();
-		String sql = "SELECT id, name, GENDER ,POINT ,GRADE  FROM customer";
+		String sql = "SELECT id, name, GENDER ,POINT ,GRADE  FROM customer order by id";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		

@@ -6,30 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel = "stylesheet" href = "./css/style.css"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<form class="row g-3" action="update?id=${customer.id}" name="frm" method="post" enctype="multipart/form-data">
+<header>
+<h1 style ="font-weight: bold">고객 정보 리스트</h1>			
+</header>
+<main>
+<div class= "container">
+	<div class = "col-md-6">
+	<form class="row g-3" action="update?id=${customer.id}" name="frm" method="post" enctype="multipart/form-data">
 	<dl>
-	<dt>이름</dt>
-	<dd><input type="text" name="name" maxlength="50" value=""></dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">이름</dt>
+	<dd><input class="form-control" type="text" name="name" maxlength="50" value="${customer.name}"></dd>
 	</dl>
 	<dl>
-	<dt>주소</dt>
-	<dd><input type="text" name="address" maxlength="50" value="${customer.address}"></dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">주소</dt>
+	<dd><input class="form-control" type="text" name="address" maxlength="50" value="${customer.address}"></dd>
 	</dl>
 	<dl>
-	<dt>전화번호</dt>
-	<dd><input type="text" name="phone" maxlength="50" value="${customer.phone}"></dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">전화번호</dt>
+	<dd><input class="form-control" type="text" name="phone" maxlength="50" value="${customer.phone}"></dd>
 	</dl>
 	<dl>
-	<dt>성별</dt>
-	<dd><input type="radio" name="gender" value="남">&nbsp;남</dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">성별</dt>
+	<dd><input type="radio" name="gender" value="남" checked>&nbsp;남</dd>
 	<dd><input type="radio" name="gender" value="여">&nbsp;여</dd>
 	</dl>
 	<dl>
-	<dt>나이</dt>
-	<dd><input type="text" name="age" maxlength="50" value="${customer.age}"></dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">나이</dt>
+	<dd><input class="form-control" type="text" name="age" maxlength="50" value="${customer.age}"></dd>
 	</dl>
 	<div class="mb-3">
   <input class="form-control" name="file" type="file" id="file">
@@ -40,20 +47,38 @@
 	<input type="hidden" name="origin_file" value="${customer.img}">
 </div>
 <dl>
-	<dt>포인트</dt>
-	<dd><input type="text" name="point" maxlength="50" value="${customer.point}"></dd>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">포인트</dt>
+	<dd><input class="form-control" type="text" name="point" maxlength="50" value="${customer.point}"></dd>
 	</dl>
-	<select name="grade">
-	<option  value="silver">silver</option>
-	<option value ="gold">gold</option>
-	<option value= "vip">vip</option>
-	</select>
-  <div class="col-12">
-    <button class="btn btn-primary" type="button" onclick="chkForm();">등록</button>
-    <a class="btn btn-secondary" href="index">취소</a>
+	<dl>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">등급</dt>
+	<dd>
+	<select class="form-select" aria-label="Default select example" name="grade">
+    <option value="silver" selected>silver</option>
+    <option value="gold">gold</option>
+    <option value="vip">vip</option>
+</select>
+	</dd>
+	</dl>
+  <div class="bt_wrap">
+    <a class="on" onclick="chkForm(${customer.id}); return false;">등록</a>
+    <a class="off" href="index">취소</a>
   </div>
 </form>
+	
+	</div>
 </div>
+</main>
+<footer>
+         <p>&copy; 2024 Movie &amp; TV Program. All rights reserved.</p>
+         <p>Contact us at: info@example.com</p>
+         <div>
+            Follow us on:
+            <a href="https://twitter.com/example" target="_blank">Twitter</a>
+            |
+            <a href="https://facebook.com/example" target="_blank">Facebook</a>
+         </div>
+      </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./js/script.js"></script>
 </body>

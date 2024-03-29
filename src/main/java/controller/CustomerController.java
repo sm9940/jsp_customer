@@ -101,22 +101,21 @@ public class CustomerController extends HttpServlet {
 	}
   public String insertInfo(HttpServletRequest req) {
 	  Customer c = new Customer();
-	    try {
-	        BeanUtils.populate(c, req.getParameterMap());
-	        Part part = req.getPart("file");
-	        String fileName = getFileName(part);
-	        System.out.println("파일 이름: " + fileName);
-	        if(fileName !=null && !fileName.isEmpty()) {
-	            part.write(fileName);
-	            c.setImg("/img/"+fileName);
-	            req.setCharacterEncoding("UTF-8");
-	            System.out.println("Inserting customer data: " + c.toString());
-	            dao.insertInfo(c);
-	        } 
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } 
-	    return "redirect:/index";
+	  try { BeanUtils.populate(c, req.getParameterMap());
+	  Part part =req.getPart("file");
+	  String fileName= getFileName(part);
+	  
+			part.write(fileName);//서버에 파일 업로드
+			
+			//2. 경로를 포함한 이미지 파일 이름을 Board 객체에 저장
+			c.setImg("/img/" + fileName);
+		
+				dao.insertInfo(c);
+				} catch(Exception e) {
+					e.printStackTrace();
+					
+				}
+	  return "redirect:/index";
   }
 
   private String getFileName(Part part) {

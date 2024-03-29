@@ -1,30 +1,28 @@
 @charset "UTF-8";
 
 /* 초기화 태그 */
-
-* {
-	margin: 0;
-	padding: 0;
+html,
+body {
+   position: relative;
+   height: 100%;
+   color : white !important;
 }
-
-html{
-	font-size: 10px;
+a {
+   color: white !important;
+   text-decoration: none !important;
+   cursor: pointer;
 }
-
-ul, li {
-	list-style: none;
+body {
+   background: #000 !important;
+   font-family: 'Nanum Gothic', Helvetica Neue, Helvetica, Arial, sans-serif;
+   font-size: 16px;
+   color: white;
+   margin: 0;
+   padding: 0;
 }
-
-a{
-	text-decoration: none ;
-	color: inherit  ; /* 부모태그의 컬러를 상속받아 사용 */
-	cursor: point;
+label{
+	color: gray !important;
 }
-a:hover{
-	text-decoration: underline ;
-
-}
-
 /* 공통 */
 
 .bt_wrap {
@@ -48,13 +46,30 @@ a:hover{
 }
 
 .bt_wrap .on { /* a태그면서 on 클래스를 가진.. */
-	background: #000 ;
+	background: #04ce66 ;
 	color: #fff  !important;
+	border-radius: 10px;
+	width: 100px;
+	font-weight: bold;
 }
 
+.bt_wrap .off { /* a태그면서 on 클래스를 가진.. */
+	background: #333;
+	color: #fff  !important;
+	border-radius: 10px;
+	width: 100px;
+	font-weight: bold;
+}
 
 /* index.jsp */
-
+header {
+	display : flex;
+	justify-content: center; 
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
 .wrap {
 	width: 1000px;
 	margin: 0 auto; /* 가운데 정렬(width 필수 )*/
@@ -115,21 +130,27 @@ a:hover{
 /*view.jsp */
 
 .customer_wrap{
-	width: 1000px;
+	width: 1200px;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .customer_title {
-	margin: 30px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
 }
 
 .customer_title strong{
-	font-size: 3rem;
+	font-size: 2.5rem;
 }
 
 .customer_title p {
 	margin-top: 5px;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
+	
+
 }
 
 /*view.jsp */
@@ -140,12 +161,13 @@ a:hover{
 }
 
 .customer_view .title{
-	padding: 20px 15px;
-	border-bottom: 1px dashed #ddd;
+	padding: 0px 15px;
+	padding-top: 20px;
 	font-size: 2rem;
 }
 .customer_view .info{
 	padding: 20px 15px;
+	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	font-size: 0;
 }
@@ -173,21 +195,21 @@ a:hover{
 }
 .customer_view .info dl dt, .customer_view .info dl dd{
 	display: inline-block;
-	font-size: 1.4rem;
+	font-size: 1rem;
+	font-weight: bold;
 }
 .customer_view .info dl dd{
 	margin-left: 10px;
-	color: #777;
+	color: #ddd;
 }
 .customer_view .cont{
 	padding: 15px;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #fff;
 	line-height: 160%;
 	font-size: 1.4rem;
 }
 
 /*	regist.jsp	*/
-
 
 
 /* 768 ~ 1000px */
@@ -207,8 +229,8 @@ a:hover{
 		width: 95vw;
 		margin: 0 auto;
 	}
-	.customer_list th:nth-of-type(1),
-	.customer_list td:nth-of-type(1) {
+	.customer_list th:nth-of-type(2),
+	.customer_list td:nth-of-type(2) {
 	display: none;
 }
 	.customer_list th:nth-of-type(3),
@@ -250,7 +272,7 @@ a:hover{
 	.customer_view .info dl dt,
 	.customer_view .info dl dd{
 	 	display: inline-block;
-	 	font-size: 1rem;
+	 	font-size: 1.1rem;
 	}
 	
 	.customer_view .info dl:nth-of-type(1), 
@@ -264,5 +286,44 @@ a:hover{
 	.customer_view .cont img {
 		width: 50%;
 	}
+}
+
+footer {
+   background-color: #333;
+   border-top: 1px solid white;
+   margin-top: 10px;
+   color: white;
+   text-align: center;
+   padding: 10px;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
+
+
+.col-md-6{
+	margin: 0 auto;
+}
+
+.card{
+	
+	 display:flex;
+	 font-size: 1.2rem;
+	 flex-direction: column !important;
+	 margin: 10px auto;
+	background-color: white !important;
+	color: black !important; 
+	border-radius: 10px;
+	;
+}
+.card-title{
+	font-size: 1.3rem;
+	margin: 0 auto;
+}
+.card-img-top{
+	border-radius: 10px;
+}
+.card-body{
+	height: 1050px !important;
 }
 

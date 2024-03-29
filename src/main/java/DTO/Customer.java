@@ -10,6 +10,11 @@ private int age;
 private String img;
 private int point;
 private String grade;
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return name+ " " +address+" "+phone+" "+gender+" "+age+" "+img+" "+point+" "+grade;
+}
 public int getId() {
 	return id;
 }
@@ -64,4 +69,7 @@ public String getGrade() {
 public void setGrade(String grade) {
 	this.grade = grade;
 }
+
+
+
 }
