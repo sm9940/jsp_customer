@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-<h1 style ="font-weight: bold">고객 정보 리스트</h1>			
+<h1 style ="font-weight: bold"><a href="index">고객 정보 리스트</a></h1>			
 </header>
 <main>
 <div class = "container">
