@@ -113,16 +113,27 @@ public class CustomerController extends HttpServlet {
 				dao.insertInfo(c);
 				} catch(Exception e) {
 					e.printStackTrace();
-					
+					c.setImg("/img/default.jpg");
 				}
 	  return "redirect:/index";
   }
 
   private String getFileName(Part part) {
 	  String fileName = null;
-	    String submittedFileName = part.getSubmittedFileName();
-	    if (submittedFileName != null && !submittedFileName.isEmpty()) {
-	        fileName = submittedFileName.substring(submittedFileName.lastIndexOf("\\") + 1);
+	    // 파일이름이 들어있는 헤더 영역을 가지고옴
+	    String header = part.getHeader("content-disposition");
+
+	    // form-data; name="img"; filename="사진5.jpg"
+	    System.out.println("Header=> " + header);
+
+	    // 파일 이름이 들어있는 속성부분의 시작위치(인덱스 번호)를 가지고옴
+	    int start = header.indexOf("filename=");
+	    if (start != -1) { 
+	        // 쌍따옴표 사이의 이미지명 부분만 가지고 옴
+	        fileName = header.substring(start + 10, header.length() - 1);
+	    }
+	    if (fileName == null || fileName.isEmpty()) {
+	        fileName = "default.jpg";
 	    }
 	    return fileName;
   }
