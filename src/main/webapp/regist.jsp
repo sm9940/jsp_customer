@@ -39,10 +39,15 @@
 	<dd><input class="form-control form-control-lg" aria-label=".form-control-lg" type="text" name="age" maxlength="50"></dd>
 	</dl>
 	<div class="mb-3">
+	<dl>
+	<dt style="font-size:1.2rem; margin-bottom:10px;">사진</dt>
+	<dd>
   <input class="form-control form-control-lg" name="file" type="file" id="file">
   <c:if test="${customer.img != null}">
 	<img alt="업로드 이미지" src="${customer.img}" width="100"/>
 	</c:if>
+	</dd>
+	</dl>
 </div>
 <dl>
 	<dt style="font-size:1.2rem; margin-bottom:10px;">포인트</dt>
