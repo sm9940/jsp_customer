@@ -24,9 +24,7 @@
   <c:if test= "${customer.img !=null}">
 	<img class="card-img-top" src = "${customer.img}" alt="업로드 이미지" width="350" height="450">
 	</c:if>
-	<c:if test= "${customer.img =null}">
-	<img class="card-img-top" src = "./img/기본사진.jpg" alt="업로드 이미지" width="350" height="450">
-	</c:if>
+	
   <div class="card-body">
     <h5 class="card-title">고객 이름: ${customer.name}</h5>
     <p class="card-text">ID:${customer.id} </p>
